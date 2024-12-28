@@ -10,9 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.79",
     "@radix-icons/vue": "^1.0.0",
     "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^11.1.0",
+    "chart.js": "^4.4.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
@@ -24,6 +26,7 @@
     "v-calendar": "^3.1.2",
     "vee-validate": "^4.13.2",
     "vue": "latest",
+    "vue-chart": "^2.0.0",
     "vue-router": "latest",
     "vue3-date-time-picker": "^2.8.3",
     "vue3-datepicker": "^0.4.0",

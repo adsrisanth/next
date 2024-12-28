@@ -1,7 +1,7 @@
 <template>
-    <div class="relative max-w-[350px]">
+    <div class="relative w-[450px]">
       <div
-        class="border bg-green-900 text-slate-300 h-[60px] rounded p-4 cursor-pointer"
+        class="border bg-green-900 text-slate-300 min-h-[50px] rounded cursor-pointer"
         @click="toggleDropdown"
         :class="{'bg-green-800': isDropdownOpen}"
       >

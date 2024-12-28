@@ -79,7 +79,7 @@
           <td class="px-4 py-2 max-w-xs truncate overflow-hidden" title="Click to view full URL">
             <a :href="notification.url" target="_blank" class="text-blue-500 hover:underline">{{ notification.url }}</a>
           </td>
-          <td class="px-4 py-2">
+          <td class="px-4 py-2 ">
             <button @click="editNotification(index)" class="text-slate-50 bg-green-800 py-2 px-5 hover:bg-green-600 duration-300 rounded-sm mr-2">Edit</button>
             <button @click="deleteNotification(index)" class="text-slate-50 py-2 px-5 bg-red-800 duration-300 hover:bg-red-500 rounded-sm">Delete</button>
           </td>

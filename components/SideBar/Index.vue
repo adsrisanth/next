@@ -11,12 +11,14 @@ const isOverVIewTabOpen = ref(true);
 const isHomeTabOpen = ref(false);
 const isProfileTabOpen = ref(false);
 const isNotificationTabOpen=ref(false);
+const isDeliveryTabOpen=ref(false);
 
 const toggleOverVIewTab = () => {
   isOverVIewTabOpen.value = true;
   isHomeTabOpen.value = false;
   isProfileTabOpen.value = false;
   isNotificationTabOpen.value=false;
+  isDeliveryTabOpen.value=false;
 };
 
 const toggleHomeTab = () => {
@@ -24,6 +26,7 @@ const toggleHomeTab = () => {
   isOverVIewTabOpen.value = false;
   isProfileTabOpen.value = false;
   isNotificationTabOpen.value=false;
+  isDeliveryTabOpen.value=false;
 };
 
 const toggleProfileTab = () => {
@@ -31,12 +34,21 @@ const toggleProfileTab = () => {
   isOverVIewTabOpen.value = false;
   isProfileTabOpen.value = true;
   isNotificationTabOpen.value=false;
+  isDeliveryTabOpen.value=false;
 };
 const toggleNotificationTab = () => {
   isHomeTabOpen.value = false;
   isOverVIewTabOpen.value = false;
   isProfileTabOpen.value = false;
   isNotificationTabOpen.value=true;
+  isDeliveryTabOpen.value=false;
+};
+const toggleDeliveryTab = () => {
+  isHomeTabOpen.value = false;
+  isOverVIewTabOpen.value = false;
+  isProfileTabOpen.value = false;
+  isNotificationTabOpen.value=false;
+  isDeliveryTabOpen.value=true;
 };
 
 onMounted(() => {
@@ -48,6 +60,9 @@ onMounted(() => {
     toggleProfileTab();
   } else if (route.path.startsWith("/notifications")) {
     toggleNotificationTab()
+  }
+  else if(route.path.startsWith("/delivery")) {
+    toggleDeliveryTab()
   }
 });
 </script>
@@ -75,18 +90,25 @@ onMounted(() => {
         @click="toggleProfileTab"
         class="cursor-pointer lg:p-6 transition-colors duration-300"
         :class="isProfileTabOpen ? 'bg-[#159947]' : 'bg-transparent'"
-        alt="Home"
+        alt="Profile"
       />
       <img
         src="../../assets/images/notifications.svg"
         @click="toggleNotificationTab"
         class="cursor-pointer lg:p-2 transition-colors duration-300"
         :class="isNotificationTabOpen ? 'bg-[#159947]' : 'bg-transparent'"
-        alt="Home"
+        alt="Notification"
+      />
+      <img
+        src="../../assets/images/delivery.svg"
+        @click="toggleDeliveryTab"
+        class="cursor-pointer lg:p-4 transition-colors duration-300"
+        :class="isDeliveryTabOpen ? 'bg-[#159947]' : 'bg-transparent'"
+        alt="Delivery"
       />
     </div>
     <div class="w-[250px] h-full">
-      <SideBarMenu :isOverVIewTabOpen="isOverVIewTabOpen" :isHomeTabOpen="isHomeTabOpen" :isProfileTabOpen="isProfileTabOpen" :isNotificationTabOpen="isNotificationTabOpen"/>
+      <SideBarMenu :isOverVIewTabOpen="isOverVIewTabOpen" :isHomeTabOpen="isHomeTabOpen" :isProfileTabOpen="isProfileTabOpen" :isNotificationTabOpen="isNotificationTabOpen" :isDeliveryTabOpen="isDeliveryTabOpen"/>
     </div>
   </div>
 </template>

@@ -7,6 +7,7 @@ const props = defineProps({
   isHomeTabOpen: Boolean,
   isProfileTabOpen : Boolean,
   isNotificationTabOpen : Boolean,
+  isDeliveryTabOpen : Boolean,
 });
 
 const route = useRoute();
@@ -60,6 +61,14 @@ const notifications = ref([
     title:"Notifications",
     path:"/notifications",
     icon:"fa6-regular:bell",
+  }
+]);
+
+const delivery = ref([
+  {
+    title:"Delivery",
+    path:"/delivery",
+    icon:"iconamoon:delivery-fast-bold",
   }
 ]);
 </script>
@@ -126,6 +135,24 @@ const notifications = ref([
       </div>
       <div class="p-4 flex flex-col gap-2">
         <NuxtLink v-for="(item, index) in notifications" :key="index" :to="item.path">
+          <div
+            :class="[
+              'flex items-center py-3 px-5 rounded-lg font-poppins text-gray-200 hover:bg-green-800 duration-300 text-xl',
+              route.path === item.path ? 'bg-green-900' : ''
+            ]"
+          >
+            <Icon size="20" :name="item.icon" color="white" class="mr-3" />
+            <span>{{ item.title }}</span>
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+    <div v-if="props.isDeliveryTabOpen" class="bg-[#159947] h-full transition-all duration-300">
+      <div class="font-oswald text-gray-200 text-xl h-20 bg-green-900 flex p-5 items-center text-center overflow-hidden">
+        <span class="truncate">BmBastha</span>
+      </div>
+      <div class="p-4 flex flex-col gap-2">
+        <NuxtLink v-for="(item, index) in delivery" :key="index" :to="item.path">
           <div
             :class="[
               'flex items-center py-3 px-5 rounded-lg font-poppins text-gray-200 hover:bg-green-800 duration-300 text-xl',
